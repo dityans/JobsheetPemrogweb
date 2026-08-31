@@ -30,6 +30,7 @@ header {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
 }
 
 header h1 {
@@ -39,6 +40,7 @@ header h1 {
 header nav ul {
     list-style: none;
     display: flex;
+    flex-direction: column;
     gap: 1.25rem;
 }
 
@@ -70,7 +72,7 @@ section h2 {
 /* ===== Kartu Statistik (CSS Grid) ===== */
 main section:nth-of-type(2) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 1rem;
 }
 
@@ -157,7 +159,7 @@ form label {
 form input,
 form select {
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     padding: 0.55rem 0.7rem;
     border: 1px solid #cdd4da;
     border-radius: 4px;
@@ -197,54 +199,61 @@ footer {
 }
 
 .nav-toggle-label {
-    display: none;
+    display: block;
     font-size: 1.6rem;
     color: #fff;
     cursor: pointer;
 }
 
+header nav {
+    display: none;
+    width: 100%;
+    order: 3;
+    margin-top: 1rem;
+}
+
+.nav-toggle:checked ~ nav {
+    display: block;
+}
+
 /* ===== Responsive Breakpoints ===== */
 
-/* Tablet ke bawah */
-@media (max-width: 900px) {
+/* Tablet ke atas */
+@media (min-width: 628px) {
+    header {
+        position: static;
+    }
+ 
+    .nav-toggle-label {
+        display: none;
+    }
+ 
+    header nav {
+        display: block;
+        width: auto;
+        order: initial;
+        margin-top: 0;
+    }
+ 
+    header nav ul {
+        flex-direction: row;
+        gap: 1.25rem;
+    }
+ 
     main section:nth-of-type(2) {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    header {
-        position: relative;
-    }
-
-    .nav-toggle-label {
-        display: block;
-    }
-
-    header nav {
-        display: none;
-        width: 100%;
-        order: 3;
-        margin-top: 1rem;
-    }
-
-    .nav-toggle:checked ~ nav {
-        display: block;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    main section:nth-of-type(2) {
-        grid-template-columns: 1fr;
-    }
-
+ 
     form input,
     form select {
-        max-width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* Desktop ke atas */
+@media (min-width: 901px) {
+    main section:nth-of-type(2) {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
