@@ -242,3 +242,10 @@ footer {
         max-width: 100%;
     }
 }
+
+/* Monitor Sangat Lebar */
+@media (min-width: 1400px) {
+  main {
+    max-width: 1300px; /* Diubah dari 1000px agar area konten lebih luas */
+  }
+}
