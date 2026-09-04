@@ -98,6 +98,26 @@ Halaman yang sudah ada (Beranda, Daftar/Tambah Buku, Daftar/Tambah Anggota — J
 +--------------------------------------+
 ```
 
+## Wireframe: Registrasi Anggota Baru
+
+```
++-------------------------------------------------------+
+|  Form Registrasi Anggota Baru                         |
+|-------------------------------------------------------|
+|  Nama Lengkap                                         |
+|  [                                                 ]  |
+|                                                       |
+|  Email                                                |
+|  [                                                 ]  |
+|                                                       |
+|  Password                                             |
+|  [                                                 ]  |
+|                                                       |
+|  [ Daftar Sekarang ]                                  |
+|                                                       |
++-------------------------------------------------------+
+```
+
 ## Konsistensi dengan Desain yang Sudah Berjalan
 - Warna aksen, tipografi navbar, dan gaya tabel/kartu mengikuti `assets/css/style.css` yang sudah dibangun sejak Jobsheet 2-3.
 - Navbar akan ditambah menu **Peminjaman** dan indikator status login (nama petugas / tombol Logout) mulai implementasi di Jobsheet 10.
