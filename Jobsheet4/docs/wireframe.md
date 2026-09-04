@@ -105,13 +105,13 @@ Halaman yang sudah ada (Beranda, Daftar/Tambah Buku, Daftar/Tambah Anggota — J
 |  Form Registrasi Anggota Baru                         |
 |-------------------------------------------------------|
 |  Nama Lengkap                                         |
-|  [                                                 ]  |
+|  [_________________________________________________]  |
 |                                                       |
 |  Email                                                |
-|  [                                                 ]  |
+|  [_________________________________________________]  |
 |                                                       |
 |  Password                                             |
-|  [                                                 ]  |
+|  [_________________________________________________]  |
 |                                                       |
 |  [ Daftar Sekarang ]                                  |
 |                                                       |
