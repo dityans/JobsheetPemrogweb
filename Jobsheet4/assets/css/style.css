@@ -198,6 +198,100 @@ footer {
     cursor: pointer;
 }
 
+/* === Styling Halaman Login === */
+
+.login-card {
+    max-width: 350px;
+    margin: 70px auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.login-card h1 {
+    margin-bottom: 0.4rem;
+    font-size: 2rem;
+    color: #1d5b8a;
+}
+
+.login-card h2 {
+    font-size: 1.2rem;
+}
+
+.login-form {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.form-group label {
+    width: 35%; 
+    text-align: left;
+    margin-bottom: -1rem;
+}
+
+.form-group input {
+    width: 100%; 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group input::placeholder {
+  color: #a9a9a9; /* Abu-abu tipis */
+  font-size: 90%;
+}
+
+.form-group i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%); /* Posisi tengah vertikal */
+  color: #8f4343;
+  cursor: pointer;
+}
+
+.toggle-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #666;
+    }
+
+.btn-login {
+    width: 100%;
+    padding: 10px 40px; 
+    font-weight: bold; 
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.register-link {
+    margin-top: 23px; 
+    font-size: 0.9em;
+}
+
+.register-link a {
+    text-decoration: none; 
+    color: #0066cc;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
 /* ===== Responsive Breakpoints ===== */
 
 /* Tablet ke bawah */
