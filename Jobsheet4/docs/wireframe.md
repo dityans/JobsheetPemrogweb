@@ -24,6 +24,15 @@ Halaman yang sudah ada (Beranda, Daftar/Tambah Buku, Daftar/Tambah Anggota — J
         -> [Kembali ke Dashboard]
 ```
 
+## User Flow — Pencarian Tunggakan Lebih Jatuh Tempo
+
+```
+[Dashboard] -> [Menu "Daftar Anggota"] -> [Filter Status: Menunggak] 
+        -> [Checklist Hanya Lebih Jatuh Tempo ( > 7 hari )]
+        -> [Sistem menampilkan daftar anggota yang keterlambatannya melebihi batas waktu]
+        -> [Kembali ke Dashboard]
+```
+
 ## Wireframe: Halaman Login
 
 ```
