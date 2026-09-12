@@ -110,6 +110,55 @@ function initValidasiForm() {
     });
 }
 
+// Fungsi Generik (Satu fungsi untuk semua jenis data)
+async function muatDataGenerik(urlJson, containerSelector, keys) {
+    const tbody = document.querySelector(containerSelector);
+    const loading = document.getElementById("loading-indicator");
+    if (!tbody) return;
+
+    if (loading) loading.style.display = "block";
+    tbody.innerHTML = "";
+
+    try {
+        await new Promise((resolve) => setTimeout(resolve, 600)); // Simulasi delay
+
+        const res = await fetch(urlJson);
+        if (!res.ok) throw new Error("Gagal mengambil data (status " + res.status + ")");
+        
+        const daftarData = await res.json();
+
+        if (daftarData.length === 0) {
+            tbody.innerHTML = "<tr><td colspan=\"" + (keys.length + 1) + "\">Data kosong.</td></tr>";
+            return;
+        }
+
+        // Render baris tabel secara dinamis berdasarkan parameter keys
+        daftarData.forEach(function (item) {
+            const tr = document.createElement("tr");
+            
+            let contentHtml = "";
+            // Loop array 'keys' untuk mengambil nilai dari tiap field JSON
+            keys.forEach(function (key) {
+                contentHtml += "<td>" + (item[key] !== undefined ? item[key] : "-") + "</td>";
+            });
+
+            // Tambahkan kolom tombol aksi Edit & Hapus
+            contentHtml += 
+                "<td>" +
+                "<button type=\"button\">Edit</button> " +
+                "<button type=\"button\" class=\"btn-hapus\">Hapus</button>" +
+                "</td>";
+
+            tr.innerHTML = contentHtml;
+            tbody.appendChild(tr);
+        });
+    } catch (err) {
+        tbody.innerHTML = "<tr><td colspan=\"" + (keys.length + 1) + "\">Gagal memuat data: " + err.message + "</td></tr>";
+    } finally {
+        if (loading) loading.style.display = "none";
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     initNavToggle();
     initHapusConfirm();
