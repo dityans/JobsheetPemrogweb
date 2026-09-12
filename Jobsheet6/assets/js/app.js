@@ -121,7 +121,7 @@ async function muatDataGenerik(urlJson, containerSelector, keys) {
     tbody.innerHTML = "";
 
     try {
-        await new Promise((resolve) => setTimeout(resolve, 600)); // Simulasi delay
+        await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulasi delay
 
         const res = await fetch(urlJson);
         if (!res.ok) throw new Error("Gagal mengambil data (status " + res.status + ")");
