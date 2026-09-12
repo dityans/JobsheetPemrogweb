@@ -39,7 +39,7 @@ function initTableFilter() {
     });
 }
 
-// ===== Validasi form (client-side) =====
+// ===== Validasi form (cli ent-side) =====
 function tampilkanError(input, pesan) {
     hapusError(input);
     const span = document.createElement("span");
@@ -97,6 +97,19 @@ function initValidasiForm() {
                 valid = false;
             } else {
                 hapusError(stok);
+            }
+        }
+
+        const isbn = form.querySelector("[name='isbn']");
+        if (isbn) {
+            const isbnValue = isbn.value.trim();
+            // Regex /^[0-9-]+$/ : hanya mengizinkan angka (0-9) dan tanda hubung (-)
+            const isbnRegex = /^[0-9-]+$/;
+            if (isbnValue !== "" && !isbnRegex.test(isbnValue)) {
+                tampilkanError(isbn, "ISBN hanya boleh berisi angka dan tanda hubung (-)");
+                valid = false;
+            } else {
+                hapusError(isbn);
             }
         }
 
