@@ -3,7 +3,7 @@ function muatDaftarBuku() {
     muatDataGenerik(
         "../data/buku.json",                 // Parameter 1: File JSON
         ".table-responsive table tbody",     // Parameter 2: Selector Tabel
-        ["judul", "pengarang", "tahun", "stok"] // Parameter 3: Daftar Kunci / Field
+        ["judul", "pengarang", "tahun", "stok", "kategori"] // Parameter 3: Daftar Kunci / Field
     );
 }
 
