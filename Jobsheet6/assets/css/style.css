@@ -217,6 +217,27 @@ footer {
     border-radius: 4px;
 }
 
+/* Tombol Muat Ulang */
+#btn-reload {
+  background-color: transparent;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: block;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+#btn-reload:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
 /* ===== Responsive Breakpoints ===== */
 
 /* Tablet ke bawah */

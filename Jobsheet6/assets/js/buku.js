@@ -38,4 +38,11 @@ async function muatDaftarBuku() {
     }
 }
 
+const btnReload = document.querySelector('#btn-reload');
+if (btnReload) {
+  btnReload.addEventListener('click', function () {
+    muatDaftarBuku();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", muatDaftarBuku);
