@@ -217,6 +217,13 @@ footer {
     border-radius: 4px;
 }
 
+/* ===== Jumlah Baris ===== */
+#row-counter {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
 /* ===== Responsive Breakpoints ===== */
 
 /* Tablet ke bawah */

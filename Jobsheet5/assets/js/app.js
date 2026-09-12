@@ -9,6 +9,16 @@ function initNavToggle() {
     });
 }
 
+function updateCounter() {
+    const counterElement = document.querySelector("#row-counter");
+    if (!counterElement) return;
+
+    const totalRows = document.querySelectorAll("table tbody tr").length;
+    const visibleRows = document.querySelectorAll("table tbody tr:not([style*=\"display: none\"])").length;
+
+    counterElement.textContent = `Menampilkan ${visibleRows} dari ${totalRows} buku`;
+}
+
 // ===== Konfirmasi hapus (front-end only, belum ke server) =====
 function initHapusConfirm() {
     document.querySelectorAll(".btn-hapus").forEach(function (btn) {
@@ -18,6 +28,7 @@ function initHapusConfirm() {
             const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
             if (yakin && row) {
                 row.remove();
+                updateCounter();
             }
         });
     });
@@ -41,6 +52,7 @@ function initTableFilter() {
                 row.style.display = "none";
             }
         });
+        updateCounter();
     });
 }
 
