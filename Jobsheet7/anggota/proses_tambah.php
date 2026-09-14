@@ -13,6 +13,9 @@ if ($nama === '') {
 if ($noAnggota === '') {
     $errors[] = "No. Anggota wajib diisi.";
 }
+if (!is_numeric($noHp)) {
+    $errors[] = "Nomor telepon harus berupa angka!";
+}
 
 if (!empty($errors)) {
     $_SESSION['flash'] = ['type' => 'error', 'pesan' => implode(' ', $errors)];
