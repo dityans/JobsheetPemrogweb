@@ -6,7 +6,22 @@ require __DIR__ . '/../includes/koneksi.php';
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 
-$daftarBuku = $pdo->query("SELECT * FROM buku ORDER BY id DESC")->fetchAll(PDO::FETCH_ASSOC);
+// Ambil kata kunci pencarian
+$keyword = $_GET['keyword'] ?? '';
+
+if (!empty($keyword)) {
+    // Query pencarian dengan ILIKE
+    $sql = "SELECT * FROM buku WHERE judul ILIKE :keyword ORDER BY id DESC";
+    $stmt = $pdo->prepare($sql);
+    // Tambahkan wildcard % agar mencari teks yang mengandung keyword
+    $stmt->execute([':keyword' => "%$keyword%"]);
+} else {
+    // Query default jika tidak ada pencarian
+    $sql = "SELECT * FROM buku ORDER BY id DESC";
+    $stmt = $pdo->query($sql);
+}
+
+$daftarBuku = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
         <section>
             <h2>Daftar Buku</h2>
@@ -15,10 +30,16 @@ $daftarBuku = $pdo->query("SELECT * FROM buku ORDER BY id DESC")->fetchAll(PDO::
                 <p class="flash flash-<?php echo $flash['type']; ?>"><?php echo $flash['pesan']; ?></p>
             <?php endif; ?>
 
-            <div class="search-box">
-                <label for="search-input">Cari Judul Buku</label>
-                <input type="text" id="search-input" placeholder="Ketik judul buku...">
-            </div>
+            <!-- Form Pencarian HTML -->
+            <form action="" method="GET" class="mb-3">
+                <div class="search-box">
+                    <input type="text" name="keyword" class="form-control" placeholder="Cari judul buku..." value="<?= htmlspecialchars($keyword) ?>">
+                    <button class="btn btn-primary" type="submit">Cari</button>
+                    <?php if (!empty($keyword)): ?>
+                        <a href="list.php" class="btn btn-secondary">Reset</a>
+                    <?php endif; ?>
+                </div>
+            </form>
 
             <div class="table-responsive">
             <table>
@@ -40,11 +61,11 @@ $daftarBuku = $pdo->query("SELECT * FROM buku ORDER BY id DESC")->fetchAll(PDO::
                     <?php else: ?>
                         <?php foreach ($daftarBuku as $buku): ?>
                         <tr>
-                            <td><?php echo $buku['judul']; ?></td>
-                            <td><?php echo $buku['pengarang']; ?></td>
-                            <td><?php echo $buku['tahun']; ?></td>
-                            <td><?php echo $buku['stok']; ?></td>
-                            <td><?php echo $buku['tanggal_ditambahkan']; ?></td>
+                            <td><?= htmlspecialchars($buku['judul']) ?></td>
+                            <td><?= htmlspecialchars($buku['pengarang']) ?></td>
+                            <td><?= htmlspecialchars($buku['tahun']) ?></td>
+                            <td><?= htmlspecialchars($buku['stok']) ?></td>
+                            <td><?= htmlspecialchars($buku['tanggal_ditambahkan']) ?></td>
                             <td>
                                 <button type="button">Edit</button>
                                 <button type="button" class="btn-hapus">Hapus</button>
