@@ -295,6 +295,27 @@ footer {
     border-radius: 4px;
 }
 
+/* === remeber me === */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Jarak antara checkbox dan teks */
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    user-select: none; /* Mencegah teks ter-highlight saat diklik */
+}
+
+/* Memperbesar & memberi gaya pada checkbox */
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #1a5c88; /* Warna biru disesuaikan dengan tombol Masuk */
+}
+
 /* ===== Responsive Breakpoints ===== */
 
 /* Tablet ke bawah */
