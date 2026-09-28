@@ -10,3 +10,15 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: ../auth/login.php');
     exit;
 }
+
+function is_admin(): bool {
+    return isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
+}
+
+function require_admin(): void {
+    if (!is_admin()) {
+        $_SESSION['flash'] = ['type' => 'error', 'pesan' => 'Anda tidak punya izin untuk aksi ini.'];
+        header('Location: list.php');
+        exit;
+    }
+}

@@ -2,6 +2,8 @@
 require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/koneksi.php';
 
+require_admin(); 
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: list.php');
     exit;
