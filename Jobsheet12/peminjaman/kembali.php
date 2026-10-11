@@ -9,7 +9,7 @@ unset($_SESSION['flash']);
 
 $keyword = trim($_GET['q'] ?? '');
 
-$sqlDasar = "SELECT p.id, b.judul, a.nama, p.tanggal_pinjam, p.tanggal_jatuh_tempo
+$sqlDasar = "SELECT p.id, b.judul, a.nama, p.tanggal_pinjam, p.tanggal_jatuh_tempo, a.no_hp
              FROM peminjaman p
              JOIN buku b ON b.id = p.buku_id
              JOIN anggota a ON a.id = p.anggota_id
@@ -45,6 +45,7 @@ $daftarAktif = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <thead>
                     <tr>
                         <th>Anggota</th>
+                        <th>No. HP</th>
                         <th>Buku</th>
                         <th>Tgl Pinjam</th>
                         <th>Jatuh Tempo</th>
@@ -60,6 +61,7 @@ $daftarAktif = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <?php foreach ($daftarAktif as $trx): ?>
                         <tr>
                             <td><?php echo e($trx['nama']); ?></td>
+                            <td><?php echo e($trx['no_hp']); ?></td>
                             <td><?php echo e($trx['judul']); ?></td>
                             <td><?php echo $trx['tanggal_pinjam']; ?></td>
                             <td><?php echo $trx['tanggal_jatuh_tempo']; ?></td>
